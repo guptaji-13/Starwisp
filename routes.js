@@ -1,0 +1,184 @@
+const express = require(`express`);
+const router = express.Router();
+const { check, validationResult, oneOf } = require('express-validator');
+const db = require(`./db`);
+
+// Create a new quotation
+// POST method
+// input JSON   quotation_id,
+//              university_name,
+//              number_of_students,
+//              number_of_teachers,
+//              number_of_employees,contact_number
+router.post(
+  '/',
+  [
+    check('quotation_id', 'Not a valid quotation ID')
+      .isInt()
+      .isLength({ max: 10 })
+      .not()
+      .isEmpty(),
+    check('university_name', 'Not a valid universty name')
+      .isString()
+      .isLength({ max: 256 })
+      .not()
+      .isEmpty(),
+    check('number_of_students', 'Not a valid number of students')
+      .isInt()
+      .isLength({ max: 4 })
+      .not()
+      .isEmpty(),
+    check('number_of_teachers', 'Not a valid number of teachers')
+      .isInt()
+      .isLength({ max: 4 })
+      .not()
+      .isEmpty(),
+    check('number_of_employees', 'Not a valid number of employees')
+      .isInt()
+      .isLength({ max: 4 })
+      .not()
+      .isEmpty(),
+    check('contact_number', 'Not a valid contact number')
+      .isInt()
+      .isLength({ max: 4 })
+      .not()
+      .isEmpty(),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const {
+      quotation_id,
+      university_name,
+      number_of_students,
+      number_of_teachers,
+      number_of_employees,
+      contact_number,
+    } = req.body;
+    db.create(
+      quotation_id,
+      university_name,
+      number_of_students,
+      number_of_teachers,
+      number_of_employees,
+      contact_number
+    )
+      .then(data => {
+        res.status(data.status).json(data.message);
+      })
+      .catch(err => {
+        res.status(err.status).json(err.message);
+      });
+  }
+);
+
+// Read an entry using quotation id from URL
+// GET method
+// URL '.../quotation_id'
+router.get(
+  '/:id',
+  [check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 })],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    db.read(req.params.id)
+      .then(data => {
+        res.status(data.status).json(data.message);
+      })
+      .catch(err => {
+        res.status(err.status).json(err.message);
+      });
+  }
+);
+
+// Update
+// PUT method
+// input JSON   id, (quatation_id)
+//              field, (name of the column that is to be updated)
+//              value (new value of the field)
+router.put(
+  '/',
+  check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 }),
+  oneOf([
+    [
+      check('field').equals('university_name'),
+      check('value', 'Not a valid university name')
+        .isString()
+        .isLength({ max: 256 })
+        .not()
+        .isEmpty(),
+    ],
+    [
+      check('field').equals('number_of_students'),
+      check('value', 'Not a valid number of students')
+        .isInt()
+        .isLength({ max: 4 })
+        .not()
+        .isEmpty(),
+    ],
+    [
+      check('field').equals('number_of_teachers'),
+      check('value', 'Not a valid number of teachers')
+        .isInt()
+        .isLength({ max: 4 })
+        .not()
+        .isEmpty(),
+    ],
+    [
+      check('field').equals('number_of_employees'),
+      check('value', 'Not a valid number of employees')
+        .isInt()
+        .isLength({ max: 4 })
+        .not()
+        .isEmpty(),
+    ],
+    [
+      check('field').equals('contact_number'),
+      check('value', 'Not a valid contact number')
+        .isInt()
+        .isLength({ max: 4 })
+        .not()
+        .isEmpty(),
+    ],
+  ]),
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    db.update(req.body.id, req.body.field, req.body.value)
+      .then(data => {
+        res.status(data.status).json(data.message);
+      })
+      .catch(err => {
+        res.status(err.status).json(err.message);
+      });
+  }
+);
+
+// Delete a quotation using quotation_id from URL
+// DELETE method
+// URL '.../quotation_id'
+router.delete(
+  '/:id',
+  [check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 })],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    db.deletes(req.params.id)
+      .then(data => {
+        res.status(data.status).json(data.message);
+      })
+      .catch(err => {
+        res.status(err.status).json(err.message);
+      });
+  }
+);
+
+module.exports = router;
