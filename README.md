@@ -4,8 +4,8 @@
 The API will run at locolhost:XXXX/
 wherer XXXX is the port number displayed in console logs.
 
-To create a new entry
-URL '/'
+To create a new entry<br>
+URL '/'<br>
 input JSON with keys quotation_id, university_name, number_of_students, number_of_teachers, number_of_employees, contact_number
 
 To read an entry
