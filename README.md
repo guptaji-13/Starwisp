@@ -14,8 +14,8 @@ where :id is the quotation_id for the row that is to be read
 
 To update an entry<br>
 URL '/'<br>
-input JSON with keys quotation_id, field, value<br>
-where field is the name of the column that is to be updated and value is the new data of that column.
+input JSON with keys id, field, value<br>
+where id is the quotation_id of the row that is to be updated, field is the name of the column that is to be updated and value is the new data of that column.
 
 To delete an entry<br>
 URL '/:id'<br>
