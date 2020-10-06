@@ -68,9 +68,11 @@ router.post(
       )
       .then(data => {
         res.status(data.status).json(data.message);
+        console.log(data.message);
       })
       .catch(err => {
         res.status(err.status).json(err.message);
+        console.log(err.message);
       });
   }
 );
@@ -91,9 +93,11 @@ router.get(
       .readQuotation(quotation_id)
       .then(data => {
         res.status(data.status).json(data.message);
+        console.log(data.message);
       })
       .catch(err => {
         res.status(err.status).json(err.message);
+        console.log(err.message);
       });
   }
 );
@@ -160,9 +164,11 @@ router.put(
       .updateQuotation(quotation_id, field, value)
       .then(data => {
         res.status(data.status).json(data.message);
+        console.log(data.message);
       })
       .catch(err => {
         res.status(err.status).json(err.message);
+        console.log(err.message);
       });
   }
 );
@@ -183,9 +189,11 @@ router.delete(
       .deleteQuotation(quotation_id)
       .then(data => {
         res.status(data.status).json(data.message);
+        console.log(data.message);
       })
       .catch(err => {
         res.status(err.status).json(err.message);
+        console.log(err.message);
       });
   }
 );

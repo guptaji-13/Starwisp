@@ -8,6 +8,17 @@ const pool = createPool({
   connection: 10, // No. of connections for pool
 });
 
+pool.getConnection(function (err) {
+  if (err) throw err;
+  console.log('Database Connected!');
+  var sql =
+    'CREATE TABLE if not exists quotations (quotation_id int(10) primary key, university_name varchar(256) not null, number_of_students int(4) not null, number_of_teachers int(4) not null, number_of_employees int(4) not null, contact_number int(4) not null)';
+  pool.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log('Table created');
+  });
+});
+
 // Create
 const create = (
   quotation_id,

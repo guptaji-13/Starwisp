@@ -27,7 +27,7 @@ const updateQuotation = (quotation_id, field, value) => {
 };
 
 const deleteQuotation = quotation_id => {
-  return quotations.delete(quotation_id);
+  return quotations.deletes(quotation_id);
 };
 
 module.exports.createQuotation = createQuotation;
