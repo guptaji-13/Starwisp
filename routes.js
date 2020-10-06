@@ -1,7 +1,7 @@
 const express = require(`express`);
 const router = express.Router();
 const { check, validationResult, oneOf } = require('express-validator');
-const db = require(`./db`);
+const service = require(`./service`);
 
 // Create a new quotation
 // POST method
@@ -57,14 +57,15 @@ router.post(
       number_of_employees,
       contact_number,
     } = req.body;
-    db.create(
-      quotation_id,
-      university_name,
-      number_of_students,
-      number_of_teachers,
-      number_of_employees,
-      contact_number
-    )
+    service
+      .createQuotation(
+        quotation_id,
+        university_name,
+        number_of_students,
+        number_of_teachers,
+        number_of_employees,
+        contact_number
+      )
       .then(data => {
         res.status(data.status).json(data.message);
       })
@@ -85,7 +86,9 @@ router.get(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    db.read(req.params.id)
+    const quotation_id = req.params.id;
+    service
+      .readQuotation(quotation_id)
       .then(data => {
         res.status(data.status).json(data.message);
       })
@@ -150,7 +153,11 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    db.update(req.body.id, req.body.field, req.body.value)
+    const quotation_id = req.body.id;
+    const field = req.body.field;
+    const value = req.body.value;
+    service
+      .updateQuotation(quotation_id, field, value)
       .then(data => {
         res.status(data.status).json(data.message);
       })
@@ -171,7 +178,9 @@ router.delete(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    db.deletes(req.params.id)
+    const quotation_id = req.params.id;
+    service
+      .deleteQuotation(quotation_id)
       .then(data => {
         res.status(data.status).json(data.message);
       })
