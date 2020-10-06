@@ -8,15 +8,15 @@ To create a new entry<br>
 URL '/'<br>
 input JSON with keys quotation_id, university_name, number_of_students, number_of_teachers, number_of_employees, contact_number
 
-To read an entry
-URL '/:id'
+To read an entry<br>
+URL '/:id'<br>
 where :id is the quotation_id for the row that is to be read
 
-To update an entry
-URL '/'
+To update an entry<br>
+URL '/'<br>
 input JSON with keys quotation_id, field, value
 where field is the name of the column that is to be updated and value is the new data of that column.
 
-To delete an entry
-URL '/:id'
+To delete an entry<br>
+URL '/:id'<br>
 where :id is the quotation_id for the row that is to be deleted.
