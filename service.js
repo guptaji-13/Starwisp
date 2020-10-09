@@ -22,6 +22,10 @@ const readQuotation = quotation_id => {
   return quotations.read(quotation_id);
 };
 
+const readAllQuotation = quotation_id => {
+  return quotations.readAll(quotation_id);
+};
+
 const updateQuotation = (quotation_id, field, value) => {
   return quotations.update(quotation_id, field, value);
 };
@@ -32,5 +36,6 @@ const deleteQuotation = quotation_id => {
 
 module.exports.createQuotation = createQuotation;
 module.exports.readQuotation = readQuotation;
+module.exports.readAllQuotation = readAllQuotation;
 module.exports.updateQuotation = updateQuotation;
 module.exports.deleteQuotation = deleteQuotation;

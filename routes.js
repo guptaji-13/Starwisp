@@ -47,7 +47,11 @@ router.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: errors.array(),
+      });
     }
     const {
       quotation_id,
@@ -67,12 +71,12 @@ router.post(
         contact_number
       )
       .then(data => {
-        res.status(data.status).json(data.message);
-        console.log(data.message);
+        res.status(data.status).json(data);
+        console.log(data);
       })
       .catch(err => {
-        res.status(err.status).json(err.message);
-        console.log(err.message);
+        res.status(err.status).json(err);
+        console.log(err);
       });
   }
 );
@@ -86,21 +90,40 @@ router.get(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: errors.array(),
+      });
     }
     const quotation_id = req.params.id;
     service
       .readQuotation(quotation_id)
       .then(data => {
-        res.status(data.status).json(data.message);
-        console.log(data.message);
+        res.status(data.status).json(data);
+        console.log(data);
       })
       .catch(err => {
-        res.status(err.status).json(err.message);
-        console.log(err.message);
+        res.status(err.status).json(err);
+        console.log(err);
       });
   }
 );
+
+// Read all entries
+// GET method
+router.get('/', (req, res) => {
+  service
+    .readAllQuotation()
+    .then(data => {
+      res.status(data.status).json(data);
+      console.log(data);
+    })
+    .catch(err => {
+      res.status(err.status).json(err);
+      console.log(err);
+    });
+});
 
 // Update
 // PUT method
@@ -155,7 +178,11 @@ router.put(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: errors.array(),
+      });
     }
     const quotation_id = req.body.id;
     const field = req.body.field;
@@ -163,12 +190,12 @@ router.put(
     service
       .updateQuotation(quotation_id, field, value)
       .then(data => {
-        res.status(data.status).json(data.message);
-        console.log(data.message);
+        res.status(data.status).json(data);
+        console.log(data);
       })
       .catch(err => {
-        res.status(err.status).json(err.message);
-        console.log(err.message);
+        res.status(err.status).json(err);
+        console.log(err);
       });
   }
 );
@@ -182,18 +209,22 @@ router.delete(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: errors.array(),
+      });
     }
     const quotation_id = req.params.id;
     service
       .deleteQuotation(quotation_id)
       .then(data => {
-        res.status(data.status).json(data.message);
-        console.log(data.message);
+        res.status(data.status).json(data);
+        console.log(data);
       })
       .catch(err => {
-        res.status(err.status).json(err.message);
-        console.log(err.message);
+        res.status(err.status).json(err);
+        console.log(err);
       });
   }
 );

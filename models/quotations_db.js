@@ -1,86 +1,147 @@
-const { createPool } = require(`mysql`);
-
-const pool = createPool({
-  host: 'localhost', // MySQL host (default: 'localhost')
-  user: 'root', // MySQL user (default: 'root')
-  password: 'password', // MySQL password
-  database: 'starwisp', // MySQL database
-  connection: 10, // No. of connections for pool
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('starwisp', 'root', '12345678', {
+  host: 'localhost',
+  dialect: 'mysql',
+  pool: {
+    max: 10,
+    min: 0,
+    acquire: 10000,
+    idle: 10000,
+  },
 });
 
-pool.getConnection(function (err) {
-  if (err) throw err;
-  console.log('Database Connected!');
-  var sql =
-    'CREATE TABLE if not exists quotations (quotation_id int(10) primary key, university_name varchar(256) not null, number_of_students int(4) not null, number_of_teachers int(4) not null, number_of_employees int(4) not null, contact_number int(4) not null)';
-  pool.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log('Table created');
-  });
-});
+// Model
+const User = sequelize.define(
+  'quotation',
+  {
+    quotation_id: {
+      type: Sequelize.INTEGER(10),
+      allowNull: false,
+      primaryKey: true,
+    },
+    university_name: {
+      type: Sequelize.STRING(256),
+      allowNull: false,
+    },
+    number_of_students: {
+      type: Sequelize.INTEGER(4),
+      allowNull: false,
+    },
+    number_of_teachers: {
+      type: Sequelize.INTEGER(4),
+      allowNull: false,
+    },
+    number_of_employees: {
+      type: Sequelize.INTEGER(4),
+      allowNull: false,
+    },
+    contact_number: {
+      type: Sequelize.INTEGER(4),
+      allowNull: false,
+    },
+  },
+  {
+    timestamps: false,
+  }
+);
 
 // Create
-const create = (
-  quotation_id,
-  university_name,
-  number_of_students,
-  number_of_teachers,
-  number_of_employees,
-  contact_number
-) => {
+const create = (id, name, students, teachers, employees, contact) => {
   return new Promise((resolve, reject) => {
-    pool.query(
-      `insert into quotations values(?, ?, ?, ?, ?, ?)`,
-      [
-        quotation_id,
-        university_name,
-        number_of_students,
-        number_of_teachers,
-        number_of_employees,
-        contact_number,
-      ],
-      (err, result, fields) => {
-        if (err) {
-          reject({
-            status: 500,
-            message: err.message,
-          });
-        }
+    sequelize
+      .sync()
+      .then(() =>
+        User.create({
+          quotation_id: id,
+          university_name: name,
+          number_of_students: students,
+          number_of_teachers: teachers,
+          number_of_employees: employees,
+          contact_number: contact,
+        })
+      )
+      .then(data => {
         resolve({
+          success: true,
           status: 200,
-          message: 'new quotation created',
+          message: `New entry created`,
         });
-      }
-    );
+      })
+      .catch(err => {
+        reject({
+          success: false,
+          status: 400,
+          message: err.errors[0].message,
+        });
+      });
   });
 };
 
-// Read
+// Read single entry using Quotation_ID
 const read = id => {
   return new Promise((resolve, reject) => {
-    pool.query(
-      `select * from quotations where quotation_id = ?`,
-      [id],
-      (err, result, fields) => {
-        if (err) {
-          reject({
-            status: 500,
-            message: err.message,
-          });
-        }
-        if (result.length) {
-          resolve({
-            status: 200,
-            message: result[0],
-          });
-        } else {
-          reject({
-            status: 404,
-            message: 'quotation_id not found',
-          });
-        }
-      }
-    );
+    sequelize
+      .sync()
+      .then(() => {
+        User.findAll({
+          where: {
+            quotation_id: id,
+          },
+        }).then(data => {
+          if (data.length) {
+            resolve({
+              success: true,
+              status: 200,
+              message: data,
+            });
+          } else {
+            reject({
+              success: false,
+              status: 404,
+              message: `Quotation_ID not found.`,
+            });
+          }
+        });
+      })
+      .catch(err => {
+        reject({
+          success: false,
+          status: 500,
+          message: err.message,
+        });
+      });
+  });
+};
+
+// Read all entries
+const readAll = () => {
+  return new Promise((resolve, reject) => {
+    sequelize
+      .sync()
+      .then(() => {
+        User.findAll().then(data => {
+          if (data.length) {
+            resolve({
+              success: true,
+              status: 200,
+              message: data,
+            });
+          } else {
+            reject({
+              success: false,
+              status: 404,
+              message: `Table is empty.`,
+            });
+          }
+        });
+      })
+      .catch(err => {
+        reject({
+          success: false,
+          status: 500,
+          message: err.message,
+        });
+      });
   });
 };
 
@@ -88,62 +149,91 @@ const read = id => {
 const update = (id, field, value) => {
   return new Promise((resolve, reject) => {
     var data = JSON.parse(`{"${field}":"${value}"}`);
-    pool.query(
-      `update quotations set ? where quotation_id = ?`,
-      [data, id],
-      (err, result, fields) => {
-        if (err) {
-          reject({
-            status: 500,
-            message: err.message,
-          });
-        }
-        if (result.affectedRows) {
-          resolve({
-            status: 200,
-            message: `${field} updated for quotation_id: ${id}`,
-          });
-        } else {
-          reject({
-            status: 404,
-            message: 'quotation_id not found',
-          });
-        }
-      }
-    );
+    sequelize
+      .sync()
+      .then(() => {
+        User.update(data, {
+          where: {
+            quotation_id: id,
+          },
+        }).then(data => {
+          if (data[0]) {
+            resolve({
+              success: true,
+              status: 200,
+              message: `${field} updated for quotation_id: ${id}`,
+            });
+          } else {
+            User.findAll({
+              where: {
+                quotation_id: id,
+              },
+            }).then(data => {
+              if (data.length) {
+                reject({
+                  success: false,
+                  status: 400,
+                  message: `${field} is already ${value}`,
+                });
+              } else {
+                reject({
+                  success: false,
+                  status: 404,
+                  message: `Quotation_ID not found.`,
+                });
+              }
+            });
+          }
+        });
+      })
+      .catch(err => {
+        reject({
+          success: false,
+          status: 500,
+          message: err.message,
+        });
+      });
   });
 };
 
 // Delete
 const deletes = id => {
   return new Promise((resolve, reject) => {
-    pool.query(
-      `delete from quotations where quotation_id = ?`,
-      [id],
-      (err, result, fields) => {
-        if (err) {
-          reject({
-            status: 500,
-            message: err.message,
-          });
-        }
-        if (result.affectedRows) {
-          resolve({
-            status: 200,
-            message: `Entry with quotation_id: ${id} deleted`,
-          });
-        } else {
-          reject({
-            status: 404,
-            message: 'quotation_id not found',
-          });
-        }
-      }
-    );
+    sequelize
+      .sync()
+      .then(() => {
+        User.destroy({
+          where: {
+            quotation_id: id,
+          },
+        }).then(data => {
+          if (data) {
+            resolve({
+              success: true,
+              status: 200,
+              message: data,
+            });
+          } else {
+            reject({
+              success: false,
+              status: 404,
+              message: 'quotation_id not found',
+            });
+          }
+        });
+      })
+      .catch(err => {
+        reject({
+          success: false,
+          status: 500,
+          message: err.message,
+        });
+      });
   });
 };
 
 module.exports.create = create;
 module.exports.read = read;
+module.exports.readAll = readAll;
 module.exports.update = update;
 module.exports.deletes = deletes;

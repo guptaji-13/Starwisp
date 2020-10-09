@@ -6,3 +6,12 @@ app.use('/', require(`./routes`));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+// {
+//     "quotation_id" : 243,
+//   "university_name" : "hvhbhnjb",
+//   "number_of_students" : 56456,
+//   "number_of_teachers" : 88,
+//   "number_of_employees" : 78,
+//   "contact_number" : 89
+// }
