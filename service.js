@@ -22,8 +22,8 @@ const readQuotation = quotation_id => {
   return quotations.read(quotation_id);
 };
 
-const readAllQuotation = quotation_id => {
-  return quotations.readAll(quotation_id);
+const readAllQuotation = () => {
+  return quotations.readAll();
 };
 
 const updateQuotation = (quotation_id, field, value) => {
