@@ -1,0 +1,295 @@
+[18276] 14 Oct 22:18:54.978 * Redis 3.2.100 (00000000/0) 64 bit, standalone mode, port 6379, pid 18276 ready to start.
+[18276] 14 Oct 22:18:54.984 # Server started, Redis version 3.2.100
+[18276] 14 Oct 22:18:54.984 * The server is now ready to accept connections on port 6379
+[18276] 14 Oct 22:33:54.764 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:33:54.765 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:33:54.765 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:33:54.767 * Background saving started by pid 20384
+[18276] 14 Oct 22:33:54.911 # fork operation complete
+[18276] 14 Oct 22:33:54.915 * Background saving terminated with success
+[18276] 14 Oct 22:33:54.937 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:33:59.775 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:00.690 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:00.690 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:00.691 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:00.694 * Background saving started by pid 20364
+[18276] 14 Oct 22:34:00.865 # fork operation complete
+[18276] 14 Oct 22:34:00.866 * Background saving terminated with success
+[18276] 14 Oct 22:34:00.873 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:05.699 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:06.608 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:06.608 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:06.608 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:06.610 * Background saving started by pid 9704
+[18276] 14 Oct 22:34:06.804 # fork operation complete
+[18276] 14 Oct 22:34:06.805 * Background saving terminated with success
+[18276] 14 Oct 22:34:06.813 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:11.615 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:12.535 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:12.536 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:12.537 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:12.542 * Background saving started by pid 3728
+[18276] 14 Oct 22:34:12.745 # fork operation complete
+[18276] 14 Oct 22:34:12.745 * Background saving terminated with success
+[18276] 14 Oct 22:34:12.753 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:17.551 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:18.469 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:18.471 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:18.472 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:18.476 * Background saving started by pid 16948
+[18276] 14 Oct 22:34:18.683 # fork operation complete
+[18276] 14 Oct 22:34:18.685 * Background saving terminated with success
+[18276] 14 Oct 22:34:18.704 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:23.483 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:24.393 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:24.394 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:24.394 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:24.396 * Background saving started by pid 21212
+[18276] 14 Oct 22:34:24.535 # fork operation complete
+[18276] 14 Oct 22:34:24.535 * Background saving terminated with success
+[18276] 14 Oct 22:34:24.543 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:29.401 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:30.316 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:30.316 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:30.317 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:30.319 * Background saving started by pid 6312
+[18276] 14 Oct 22:34:30.475 # fork operation complete
+[18276] 14 Oct 22:34:30.475 * Background saving terminated with success
+[18276] 14 Oct 22:34:30.482 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:35.326 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:36.240 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:36.241 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:36.241 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:36.246 * Background saving started by pid 424
+[18276] 14 Oct 22:34:36.407 # fork operation complete
+[18276] 14 Oct 22:34:36.407 * Background saving terminated with success
+[18276] 14 Oct 22:34:36.414 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:41.253 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:42.158 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:42.158 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:42.159 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:42.161 * Background saving started by pid 15248
+[18276] 14 Oct 22:34:42.342 # fork operation complete
+[18276] 14 Oct 22:34:42.343 * Background saving terminated with success
+[18276] 14 Oct 22:34:42.350 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:47.165 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:48.077 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:48.078 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:48.078 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:48.080 * Background saving started by pid 18760
+[18276] 14 Oct 22:34:48.282 # fork operation complete
+[18276] 14 Oct 22:34:48.283 * Background saving terminated with success
+[18276] 14 Oct 22:34:48.292 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:53.088 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:54.010 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:54.011 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:54.011 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:54.016 * Background saving started by pid 15368
+[18276] 14 Oct 22:34:54.221 # fork operation complete
+[18276] 14 Oct 22:34:54.222 * Background saving terminated with success
+[18276] 14 Oct 22:34:54.232 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:34:59.026 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:34:59.937 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:34:59.937 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:34:59.937 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:34:59.940 * Background saving started by pid 3148
+[18276] 14 Oct 22:35:00.157 # fork operation complete
+[18276] 14 Oct 22:35:00.160 * Background saving terminated with success
+[18276] 14 Oct 22:35:00.185 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:04.944 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:05.862 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:05.863 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:05.864 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:05.870 * Background saving started by pid 4944
+[18276] 14 Oct 22:35:06.013 # fork operation complete
+[18276] 14 Oct 22:35:06.013 * Background saving terminated with success
+[18276] 14 Oct 22:35:06.019 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:10.877 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:11.786 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:11.786 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:11.787 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:11.788 * Background saving started by pid 16852
+[18276] 14 Oct 22:35:11.947 # fork operation complete
+[18276] 14 Oct 22:35:11.948 * Background saving terminated with success
+[18276] 14 Oct 22:35:11.955 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:16.794 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:17.703 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:17.704 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:17.704 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:17.706 * Background saving started by pid 17932
+[18276] 14 Oct 22:35:17.882 # fork operation complete
+[18276] 14 Oct 22:35:17.883 * Background saving terminated with success
+[18276] 14 Oct 22:35:17.889 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:22.710 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:23.623 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:23.624 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:23.624 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:23.627 * Background saving started by pid 16808
+[18276] 14 Oct 22:35:23.816 # fork operation complete
+[18276] 14 Oct 22:35:23.816 * Background saving terminated with success
+[18276] 14 Oct 22:35:23.824 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:28.632 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:29.544 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:29.546 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:29.546 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:29.548 * Background saving started by pid 9336
+[18276] 14 Oct 22:35:29.750 # fork operation complete
+[18276] 14 Oct 22:35:29.750 * Background saving terminated with success
+[18276] 14 Oct 22:35:29.761 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:34.553 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:35.471 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:35.473 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:35.474 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:35.480 * Background saving started by pid 1984
+[18276] 14 Oct 22:35:35.693 # fork operation complete
+[18276] 14 Oct 22:35:35.695 * Background saving terminated with success
+[18276] 14 Oct 22:35:35.706 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:40.486 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:41.410 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:41.411 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:41.412 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:41.415 * Background saving started by pid 2952
+[18276] 14 Oct 22:35:41.634 # fork operation complete
+[18276] 14 Oct 22:35:41.636 * Background saving terminated with success
+[18276] 14 Oct 22:35:41.653 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:46.420 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:47.334 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:47.335 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:47.335 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:47.341 * Background saving started by pid 6924
+[18276] 14 Oct 22:35:47.484 # fork operation complete
+[18276] 14 Oct 22:35:47.484 * Background saving terminated with success
+[18276] 14 Oct 22:35:47.492 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:52.348 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:53.259 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:53.259 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:53.260 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:53.262 * Background saving started by pid 15484
+[18276] 14 Oct 22:35:53.423 # fork operation complete
+[18276] 14 Oct 22:35:53.423 * Background saving terminated with success
+[18276] 14 Oct 22:35:53.429 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:35:58.267 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:35:59.184 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:35:59.186 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:35:59.186 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:35:59.192 * Background saving started by pid 15852
+[18276] 14 Oct 22:35:59.358 # fork operation complete
+[18276] 14 Oct 22:35:59.358 * Background saving terminated with success
+[18276] 14 Oct 22:35:59.364 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:04.197 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:05.111 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:05.111 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:05.111 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:05.114 * Background saving started by pid 11980
+[18276] 14 Oct 22:36:05.293 # fork operation complete
+[18276] 14 Oct 22:36:05.293 * Background saving terminated with success
+[18276] 14 Oct 22:36:05.300 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:10.121 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:11.029 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:11.030 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:11.030 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:11.033 * Background saving started by pid 12588
+[18276] 14 Oct 22:36:11.234 # fork operation complete
+[18276] 14 Oct 22:36:11.236 * Background saving terminated with success
+[18276] 14 Oct 22:36:11.259 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:16.038 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:16.956 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:16.957 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:16.957 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:16.959 * Background saving started by pid 19220
+[18276] 14 Oct 22:36:17.090 # fork operation complete
+[18276] 14 Oct 22:36:17.091 * Background saving terminated with success
+[18276] 14 Oct 22:36:17.098 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:21.965 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:22.871 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:22.871 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:22.872 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:22.873 * Background saving started by pid 20360
+[18276] 14 Oct 22:36:23.028 # fork operation complete
+[18276] 14 Oct 22:36:23.028 * Background saving terminated with success
+[18276] 14 Oct 22:36:23.035 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:27.878 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:28.792 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:28.793 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:28.794 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:28.797 * Background saving started by pid 16740
+[18276] 14 Oct 22:36:28.962 # fork operation complete
+[18276] 14 Oct 22:36:28.963 * Background saving terminated with success
+[18276] 14 Oct 22:36:28.971 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:33.802 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:34.708 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:34.709 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:34.709 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:34.711 * Background saving started by pid 17260
+[18276] 14 Oct 22:36:34.898 # fork operation complete
+[18276] 14 Oct 22:36:34.899 * Background saving terminated with success
+[18276] 14 Oct 22:36:34.907 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:42.551 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:43.462 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:43.464 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:43.464 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:43.470 * Background saving started by pid 10772
+[18276] 14 Oct 22:36:43.650 # fork operation complete
+[18276] 14 Oct 22:36:43.651 * Background saving terminated with success
+[18276] 14 Oct 22:36:43.663 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:48.478 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:49.386 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:49.386 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:49.387 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:49.388 * Background saving started by pid 20764
+[18276] 14 Oct 22:36:49.595 # fork operation complete
+[18276] 14 Oct 22:36:49.596 * Background saving terminated with success
+[18276] 14 Oct 22:36:49.602 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:36:54.395 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:36:55.303 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:36:55.303 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:36:55.303 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:36:55.306 * Background saving started by pid 13980
+[18276] 14 Oct 22:36:55.430 # fork operation complete
+[18276] 14 Oct 22:36:55.431 * Background saving terminated with success
+[18276] 14 Oct 22:36:55.437 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:37:00.311 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:37:01.227 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:37:01.228 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:37:01.229 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:37:01.231 * Background saving started by pid 10572
+[18276] 14 Oct 22:37:01.362 # fork operation complete
+[18276] 14 Oct 22:37:01.362 * Background saving terminated with success
+[18276] 14 Oct 22:37:01.369 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:37:06.237 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:37:07.153 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:37:07.153 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:37:07.154 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:37:07.156 * Background saving started by pid 14980
+[18276] 14 Oct 22:37:07.297 # fork operation complete
+[18276] 14 Oct 22:37:07.297 * Background saving terminated with success
+[18276] 14 Oct 22:37:07.304 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:37:12.162 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:37:13.074 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:37:13.074 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:37:13.075 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:37:13.076 * Background saving started by pid 7916
+[18276] 14 Oct 22:37:13.233 # fork operation complete
+[18276] 14 Oct 22:37:13.235 * Background saving terminated with success
+[18276] 14 Oct 22:37:13.255 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:37:18.082 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:37:18.999 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:37:19.000 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:37:19.001 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:37:19.005 * Background saving started by pid 18564
+[18276] 14 Oct 22:37:19.184 # fork operation complete
+[18276] 14 Oct 22:37:19.186 * Background saving terminated with success
+[18276] 14 Oct 22:37:19.205 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:37:24.011 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:37:24.926 * Slave 127.0.0.1:6380 asks for synchronization
+[18276] 14 Oct 22:37:24.927 * Full resync requested by slave 127.0.0.1:6380
+[18276] 14 Oct 22:37:24.928 * Starting BGSAVE for SYNC with target: disk
+[18276] 14 Oct 22:37:24.932 * Background saving started by pid 17040
+[18276] 14 Oct 22:37:25.035 # fork operation complete
+[18276] 14 Oct 22:37:25.038 * Background saving terminated with success
+[18276] 14 Oct 22:37:25.044 * Synchronization with slave 127.0.0.1:6380 succeeded
+[18276] 14 Oct 22:37:29.937 # Connection with slave 127.0.0.1:6380 lost.
+[18276] 14 Oct 22:41:10.508 # User requested shutdown...
+[18276] 14 Oct 22:41:10.509 * Saving the final RDB snapshot before exiting.
+[18276] 14 Oct 22:41:10.515 * DB saved on disk
+[18276] 14 Oct 22:41:10.516 # Redis is now ready to exit, bye bye...

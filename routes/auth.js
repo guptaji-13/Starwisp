@@ -87,11 +87,7 @@ router.post(
 
 router.get('/logout', (req, res)=>{
     const token = req.header('x-auth-token');
-    console.log(token);
   serviceAuth.logout(token).then(data=>{
-    res.header('x-auth-token', null);
-    const token = req.header('x-auth-token');
-    console.log(token);
     res.status(data.status).json(data);
     console.log(data);
   }).catch(err=>{

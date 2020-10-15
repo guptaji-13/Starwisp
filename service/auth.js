@@ -1,10 +1,7 @@
 const users = require(`../models/users`);
 const bcrypt = require('bcryptjs');
 const config = require('config');
-// const redis = require('redis');
-// var JWTR = require('jwt-redis').default;
-// var redisClient = redis.createClient();
-// var jwtr = new JWTR(redisClient);
+const {redisClient} = require('../models/redisClient');
 const jwt = require('jsonwebtoken');
 
 const register = async (
@@ -66,25 +63,28 @@ const register = async (
       })
   };
 
-  // const logout = (token) => {
-  //   return new Promise((resolve, reject)=>{
-  //     jwtr.destroy(jwtr.verify(token, config.get('jwtSecret'))).then((data)=>{
-  //       resolve({
-  //         success: true,
-  //         status: 200,
-  //         message: data
-  //       })
-  //     }).catch((err)=>{
-  //       reject({
-  //         success: false,
-  //         status: 500,
-  //         message: err.message
-  //     })
-  //     })
-  //   }
-  //   );
-  // }
+const logout = (token) => {
+    return new Promise( async (resolve, reject)=>{
+      try{
+        await redisClient.LPUSH('token', token);
+        resolve({
+          success: true,
+          status: 200,
+          message: `You are logged out`
+        })
+      }
+      catch(err){
+        reject({
+          success: false,
+          status: 500,
+          message: err.message
+      })
+      }
+      
+    }
+    );
+  }
 
   module.exports.register = register;
   module.exports.login = login;
-  // module.exports.logout = logout;
+  module.exports.logout = logout;
