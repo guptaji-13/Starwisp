@@ -12,7 +12,9 @@ const auth = require(`../middleware/auth`);
 //              number_of_teachers,
 //              number_of_employees,contact_number
 router.post(
-  '/',[auth,
+  '/',
+  [
+    auth,
     [
       check('quotation_id', 'Not a valid quotation ID')
         .isInt()
@@ -88,7 +90,7 @@ router.post(
 // URL '.../quotation_id'
 router.get(
   '/:id',
-  [auth, [check('id', 'Not a valid   bn quotation_id').isInt().isLength({ max: 10 })],],
+  [auth, [check('id', 'Not a valid   bn quotation_id').isInt().isLength({ max: 10 })]],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -133,51 +135,53 @@ router.get('/', auth, (req, res) => {
 //              field, (name of the column that is to be updated)
 //              value (new value of the field)
 router.put(
-  '/',[auth, [
-  check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 })],
-  oneOf([
-    [
-      check('field').equals('university_name'),
-      check('value', 'Not a valid university name')
-        .isString()
-        .isLength({ max: 256 })
-        .not()
-        .isEmpty(),
-    ],
-    [
-      check('field').equals('number_of_students'),
-      check('value', 'Not a valid number of students')
-        .isInt()
-        .isLength({ max: 4 })
-        .not()
-        .isEmpty(),
-    ],
-    [
-      check('field').equals('number_of_teachers'),
-      check('value', 'Not a valid number of teachers')
-        .isInt()
-        .isLength({ max: 4 })
-        .not()
-        .isEmpty(),
-    ],
-    [
-      check('field').equals('number_of_employees'),
-      check('value', 'Not a valid number of employees')
-        .isInt()
-        .isLength({ max: 4 })
-        .not()
-        .isEmpty(),
-    ],
-    [
-      check('field').equals('contact_number'),
-      check('value', 'Not a valid contact number')
-        .isInt()
-        .isLength({ max: 4 })
-        .not()
-        .isEmpty(),
-    ],
-  ])
-],
+  '/',
+  [
+    auth,
+    [check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 })],
+    oneOf([
+      [
+        check('field').equals('university_name'),
+        check('value', 'Not a valid university name')
+          .isString()
+          .isLength({ max: 256 })
+          .not()
+          .isEmpty(),
+      ],
+      [
+        check('field').equals('number_of_students'),
+        check('value', 'Not a valid number of students')
+          .isInt()
+          .isLength({ max: 4 })
+          .not()
+          .isEmpty(),
+      ],
+      [
+        check('field').equals('number_of_teachers'),
+        check('value', 'Not a valid number of teachers')
+          .isInt()
+          .isLength({ max: 4 })
+          .not()
+          .isEmpty(),
+      ],
+      [
+        check('field').equals('number_of_employees'),
+        check('value', 'Not a valid number of employees')
+          .isInt()
+          .isLength({ max: 4 })
+          .not()
+          .isEmpty(),
+      ],
+      [
+        check('field').equals('contact_number'),
+        check('value', 'Not a valid contact number')
+          .isInt()
+          .isLength({ max: 4 })
+          .not()
+          .isEmpty(),
+      ],
+    ]),
+  ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -207,9 +211,8 @@ router.put(
 // DELETE method
 // URL '.../quotation_id'
 router.delete(
-  '/:id',[auth, [
-    check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 })
-  ]],
+  '/:id',
+  [auth, [check('id', 'Not a valid quotation_id').isInt().isLength({ max: 10 })]],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

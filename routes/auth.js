@@ -9,35 +9,32 @@ const serviceAuth = require(`../service/auth`);
 // input JSON   id,
 //              password
 router.post(
-    '/register',
-    [
-        check('id', 'Not a valid user ID').isString().not().isEmpty(),
-        check('password', 'Not a valid password')
-            .isString()
-            .isLength({ min: 8 })
-            .exists(),
-    ],
-    (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                success: false,
-                status: 400,
-                message: errors.array(),
-            });
-        }
-        const { id, password } = req.body;
-        serviceAuth
-            .register(id, password)
-            .then(data => {
-                res.status(data.status).json(data);
-                console.log(data);
-            })
-            .catch(err => {
-                res.status(err.status).json(err);
-                console.log(err);
-            });
+  '/register',
+  [
+    check('id', 'Not a valid user ID').isString().not().isEmpty(),
+    check('password', 'Not a valid password').isString().isLength({ min: 8 }).exists(),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: errors.array(),
+      });
     }
+    const { id, password } = req.body;
+    serviceAuth
+      .register(id, password)
+      .then(data => {
+        res.status(data.status).json(data);
+        console.log(data);
+      })
+      .catch(err => {
+        res.status(err.status).json(err);
+        console.log(err);
+      });
+  }
 );
 
 // Login user
@@ -46,54 +43,54 @@ router.post(
 // input JSON   id,
 //              password
 router.post(
-    '/login',
-    [
-        check('id', 'Not a valid user ID').isString().not().isEmpty(),
-        check('password', 'Not a valid password')
-            .isString()
-            .isLength({ min: 8 })
-            .exists(),
-    ],
-    (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                success: false,
-                status: 400,
-                message: errors.array(),
-            });
-        }
-        const { id, password } = req.body;
-        serviceAuth
-            .login(id, password)
-            .then(data => {
-                res.header('x-auth-token', data.message).status(data.status).json({
-                    success: data.success,
-                    status: data.status,
-                    message: `User logged in`,
-                });
-                console.log({
-                    success: data.success,
-                    status: data.status,
-                    message: `User logged in`,
-                });
-            })
-            .catch(err => {
-                res.status(err.status).json(err);
-                console.log(err);
-            });
+  '/login',
+  [
+    check('id', 'Not a valid user ID').isString().not().isEmpty(),
+    check('password', 'Not a valid password').isString().isLength({ min: 8 }).exists(),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        status: 400,
+        message: errors.array(),
+      });
     }
+    const { id, password } = req.body;
+    serviceAuth
+      .login(id, password)
+      .then(data => {
+        res.header('x-auth-token', data.message).status(data.status).json({
+          success: data.success,
+          status: data.status,
+          message: `User logged in`,
+        });
+        console.log({
+          success: data.success,
+          status: data.status,
+          message: `User logged in`,
+        });
+      })
+      .catch(err => {
+        res.status(err.status).json(err);
+        console.log(err);
+      });
+  }
 );
 
-router.get('/logout', (req, res)=>{
-    const token = req.header('x-auth-token');
-  serviceAuth.logout(token).then(data=>{
-    res.status(data.status).json(data);
-    console.log(data);
-  }).catch(err=>{
-    res.status(err.status).json(err);
-    console.log(err);
-  })
-})
+router.get('/logout', (req, res) => {
+  const token = req.header('x-auth-token');
+  serviceAuth
+    .logout(token)
+    .then(data => {
+      res.status(data.status).json(data);
+      console.log(data);
+    })
+    .catch(err => {
+      res.status(err.status).json(err);
+      console.log(err);
+    });
+});
 
 module.exports = router;

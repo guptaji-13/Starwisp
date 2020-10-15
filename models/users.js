@@ -31,31 +31,31 @@ const User = sequelize.define(
 
 // Create
 const register = (id, password) => {
-    return new Promise((resolve, reject) => {
-      sequelize
-        .sync()
-        .then(() =>
-          User.create({
-            user_id: id,
-            password: password,
-          })
-        )
-        .then(data => {
-          resolve({
-            success: true,
-            status: 200,
-            message: `New user registerred`,
-          });
+  return new Promise((resolve, reject) => {
+    sequelize
+      .sync()
+      .then(() =>
+        User.create({
+          user_id: id,
+          password: password,
         })
-        .catch(err => {
-          reject({
-            success: false,
-            status: 400,
-            message: err.errors[0].message,
-          });
+      )
+      .then(data => {
+        resolve({
+          success: true,
+          status: 200,
+          message: `New user registerred`,
         });
-    });
-  };
+      })
+      .catch(err => {
+        reject({
+          success: false,
+          status: 400,
+          message: err.errors[0].message,
+        });
+      });
+  });
+};
 
 // Login
 const login = id => {
@@ -93,6 +93,5 @@ const login = id => {
   });
 };
 
-
-  module.exports.register = register;
-  module.exports.login = login;
+module.exports.register = register;
+module.exports.login = login;
