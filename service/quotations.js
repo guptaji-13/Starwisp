@@ -1,4 +1,4 @@
-const quotations = require(`./models/quotations_db`);
+const quotations = require(`../models/quotations_db`);
 
 const createQuotation = (
   quotation_id,
