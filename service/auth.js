@@ -37,7 +37,7 @@ const login = (id, password) => {
         },
       };
       const token = await jwt.sign(payload, config.get('jwtSecret'), {
-        expiresIn: 36000,
+        expiresIn: 43200,
       });
       resolve({
         success: true,
@@ -55,9 +55,21 @@ const login = (id, password) => {
 };
 
 const logout = token => {
+  function keyName(date) {
+    var hours = date.getHours();
+    if (hours >= 12) {
+      return 'tokenPM';
+    }
+    if (hours < 12) {
+      return 'tokenAM';
+    }
+  }
   return new Promise(async (resolve, reject) => {
     try {
-      await redisClient.LPUSH('token', token);
+      //console.log(token);
+      var date = new Date();
+      var key = keyName(date);
+      await redisClient.LPUSH(key, token);
       resolve({
         success: true,
         status: 200,
